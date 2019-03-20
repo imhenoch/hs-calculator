@@ -1,6 +1,8 @@
-module Parser.Parser (parseExpression) where
+module Parser.TheParser
+    ( parseExpression
+    ) where
 
-import           AST
+import           Parser.AST
 import           Control.Monad (void)
 import           Text.Megaparsec
 import           Text.Megaparsec.Char

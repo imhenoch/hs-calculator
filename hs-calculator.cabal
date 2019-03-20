@@ -26,9 +26,10 @@ source-repository head
   location: https://github.com/githubuser/hs-calculator
 
 library
-  exposed-modules:
-      AST
-      Lib
+  exposed-modules: Parser
+                   Parser.AST
+                   Parser.TheParser
+                   Parser.Interpreter
   other-modules:
       Paths_hs_calculator
   hs-source-dirs:
