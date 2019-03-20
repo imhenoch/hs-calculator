@@ -1,4 +1,4 @@
-module Parser where
+module Parser.Parser (parseExpression) where
 
 import           AST
 import           Control.Monad (void)

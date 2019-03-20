@@ -1,6 +1,6 @@
 -- Abstract Syntax Tree
 
-module AST where
+module Parser.AST where
 
 data Expression =
       ExpAdd Expression Expression
