@@ -8,3 +8,4 @@ data Expression =
     | ExpMul Expression Expression
     | ExpDiv Expression Expression
     | ExpInt Integer
+    deriving(Show)
