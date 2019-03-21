@@ -51,6 +51,7 @@ executable hs-calculator-exe
     , hs-calculator
     , threepenny-gui
     , safe
+    , base-compat
   default-language: Haskell2010
 
 test-suite hs-calculator-test

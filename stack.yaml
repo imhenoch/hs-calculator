@@ -40,6 +40,7 @@ packages:
 extra-deps:
   - file-embed-0.0.11@sha256:77bb3b1dc219ccd682706b1d3dfbc5bf2db5beb1af6c108ed9e0f5b4d58a5a0a
   - threepenny-gui-0.8.3.0@sha256:4634827e7aea6aadcbd163a3014f69b494d04b56699a3027d693ccc6152337a1
+  - base-compat-0.10.5
 
 # Override default flag values for local packages and extra-deps
 # flags: {}
