@@ -8,6 +8,9 @@ import Safe          (readMay)
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core
 
+import Parser
+import Data.Either.Compat
+
 {-----------------------------------------------------------------------------
     Main
 ------------------------------------------------------------------------------}
@@ -77,4 +80,4 @@ setup window = void $ do
     on UI.click exp $ const $ do
         element pantalla # set value ("^")
     on UI.click result $ const $ do
-        element pantalla # set value ("[pressed]")
+        element pantalla # set value (show . fromRight 0 $ stringEvaluation "1 + 2")
