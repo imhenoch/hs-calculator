@@ -49,6 +49,8 @@ executable hs-calculator-exe
   build-depends:
       base >=4.7 && <5
     , hs-calculator
+    , threepenny-gui
+    , safe
   default-language: Haskell2010
 
 test-suite hs-calculator-test
