@@ -25,10 +25,11 @@ symbol = L.symbol sc
 parentheses :: Parser a -> Parser a
 parentheses = between (symbol "(") (symbol ")")
 
-integer :: Parser Integer
-integer = lexeme L.decimal
+number :: Parser (Either Integer Double)
+number = lexeme L.number
 
-term = parentheses expr <|> ExpInt <$> integer <?> "term"
+term :: Parser Expression
+term = parentheses expr <|> ExpNum <$> number
 
 table =
   [ [binary "^" ExpPow]

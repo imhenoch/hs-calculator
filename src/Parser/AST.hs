@@ -17,5 +17,5 @@ data Expression =
     | ExpLn   Expression
     | ExpSqrt Expression
     | ExpPow  Expression  Expression
-    | ExpInt  Integer
+    | ExpNum  (Either Integer Double)
     deriving Show
