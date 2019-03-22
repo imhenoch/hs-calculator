@@ -1,5 +1,5 @@
 module Parser.Interpreter
-    ( stringEvaluation
+    ( evaluate
     ) where
 
 import Data.Bifunctor
@@ -72,3 +72,9 @@ stringEvaluation :: String -> Either EvaluationError Double
 stringEvaluation s = do
   exp <- first (const ParseError) $ parseExpression s
   evaluation exp
+
+evaluate :: String -> String
+evaluate s =
+  case stringEvaluation s of
+    Right result -> show result
+    Left error -> "-"
