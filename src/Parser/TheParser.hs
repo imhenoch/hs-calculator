@@ -31,9 +31,6 @@ number = lexeme L.number
 term :: Parser Expression
 term = parentheses expr <|> ExpNum <$> number <|> expr
 
-rword :: String -> Parser ()
-rword w = (lexeme . try) (string w *> notFollowedBy alphaNumChar)
-
 table :: [[Operator Parser Expression]]
 table =
   [ [binary "^" ExpPow]
