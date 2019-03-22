@@ -1,5 +1,5 @@
-module Logaritmicas where
-import Algebraicas
+module Functions.Logaritmicas where
+import Functions.Algebraicas
 
 logn :: Double -> Double -> Double
 logn x 0 = 1

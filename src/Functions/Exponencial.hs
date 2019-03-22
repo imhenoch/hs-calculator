@@ -1,5 +1,5 @@
-module Exponencial where
-import Algebraicas
+module Functions.Exponencial where
+import Functions.Algebraicas
 
 expo :: Double -> Double -> Double
 expo x 0 = 1

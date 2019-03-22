@@ -1,5 +1,5 @@
-module Trigoradianes where
-import Algebraicas
+module Functions.Trigoradianes where
+import Functions.Algebraicas
 
 cosenon :: Double -> Double -> Double
 cosenon x (-1) = 0

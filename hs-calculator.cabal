@@ -26,7 +26,13 @@ source-repository head
   location: https://github.com/githubuser/hs-calculator
 
 library
-  exposed-modules: Parser
+  exposed-modules: Functions
+                   Functions.Algebraicas
+                   Functions.Exponencial
+                   Functions.Logaritmicas
+                   Functions.Trigogrados
+                   Functions.Trigoradianes
+                   Parser
                    Parser.AST
                    Parser.TheParser
                    Parser.Interpreter

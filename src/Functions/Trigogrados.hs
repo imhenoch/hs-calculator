@@ -1,6 +1,6 @@
-module Trigogrados where
-import Algebraicas
-import Trigoradianes
+module Functions.Trigogrados where
+import Functions.Algebraicas
+import Functions.Trigoradianes
 
 coseno :: Double -> Double
 coseno x = cosenor ((x * pi) /180)

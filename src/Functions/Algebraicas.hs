@@ -1,4 +1,4 @@
-module Algebraicas where
+module Functions.Algebraicas where
 
 potencia :: Double -> Double -> Double
 potencia x 0 = 1
