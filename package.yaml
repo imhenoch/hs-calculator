@@ -27,7 +27,9 @@ library:
 
 executables:
   hs-calculator-exe:
-    main:                Main.hs
+    main:               Main.hs
+    Fun:                Fun.hs
+    Trigo:              Trigo.hs
     source-dirs:         app
     ghc-options:
     - -threaded

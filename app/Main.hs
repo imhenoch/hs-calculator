@@ -5,6 +5,7 @@ import Data.Maybe
 import Text.Printf
 import Safe          (readMay)
 
+
 import qualified Graphics.UI.Threepenny as UI
 import Graphics.UI.Threepenny.Core
 
@@ -62,22 +63,22 @@ setup window = void $ do
                         row[element log, element sqrt, element exp, element result]
                     ]
     on UI.click sin $ const $ do
-        element pantalla # set value ("sin(")
-    on UI.click cos $ const $ do
-        element pantalla # set value ("cos(")
+        element pantalla # set value ("seno ")
+    on UI.click cos $ const $ do 
+        element pantalla # set value ("coseno ")
     on UI.click tan $ const $ do
-        element pantalla # set value ("tan(")
+        element pantalla # set value ("tangente ")
     on UI.click cotg $ const $ do
-        element pantalla # set value ("cotg(")
+        element pantalla # set value ("cotangente ")
     on UI.click sec $ const $ do
-        element pantalla # set value ("sec(")
+        element pantalla # set value ("secante ")
     on UI.click cosec $ const $ do
-        element pantalla # set value ("cosec(")
+        element pantalla # set value ("cosecante ")
     on UI.click log $ const $ do
-        element pantalla # set value ("log(")
+        element pantalla # set value ("logaritmo")
     on UI.click sqrt $ const $ do
-        element pantalla # set value ("sqrt(")
+        element pantalla # set value ("sqrt ")
     on UI.click exp $ const $ do
-        element pantalla # set value ("^")
+        element pantalla # set value (" ^ ")
     on UI.click result $ const $ do
-        element pantalla # set value (show . fromRight 0 $ stringEvaluation "1 + 2")
+        element pantalla # set value (show . fromRight 0 $ stringEvaluation "seno ")
