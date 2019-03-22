@@ -31,7 +31,8 @@ integer = lexeme L.decimal
 term = parentheses expr <|> ExpInt <$> integer <?> "term"
 
 table =
-  [ [binary "*" ExpMul, binary "/" ExpDiv]
+  [ [binary "^" ExpPow]
+  , [binary "*" ExpMul, binary "/" ExpDiv]
   , [binary "+" ExpAdd, binary "-" ExpSub]
   ]
 

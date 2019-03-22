@@ -27,6 +27,10 @@ evaluation (ExpDiv exp1 exp2) = do
   v1 <- evaluation exp1
   v2 <- evaluation exp2
   return $ v1 `div` v2
+evaluation (ExpPow exp1 exp2) = do
+  v1 <- evaluation exp1
+  v2 <- evaluation exp2
+  return $ v1 ^ v2
 evaluation (ExpInt number) = do
   Right number
 
