@@ -43,7 +43,7 @@ table =
     , prefix "cos" ExpCos
     , prefix "tan" ExpTan
     , prefix "_cot" ExpCot
-    , prefix "-sec" ExpSec
+    , prefix ".sec" ExpSec
     , prefix "Csc" ExpCsc
     , prefix "Log" ExpLog
     , prefix "ln" ExpLn
