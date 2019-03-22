@@ -29,15 +29,30 @@ number :: Parser (Either Integer Double)
 number = lexeme L.number
 
 term :: Parser Expression
-term = parentheses expr <|> ExpNum <$> number
+term = parentheses expr <|> ExpNum <$> number <|> expr
 
+rword :: String -> Parser ()
+rword w = (lexeme . try) (string w *> notFollowedBy alphaNumChar)
+
+table :: [[Operator Parser Expression]]
 table =
   [ [binary "^" ExpPow]
   , [binary "*" ExpMul, binary "/" ExpDiv]
   , [binary "+" ExpAdd, binary "-" ExpSub]
+  , [ prefix "sin" ExpSin
+    , prefix "cos" ExpCos
+    , prefix "tan" ExpTan
+    , prefix "_cot" ExpCot
+    , prefix "-sec" ExpSec
+    , prefix "Csc" ExpCsc
+    , prefix "Log" ExpLog
+    , prefix "ln" ExpLn
+    , prefix "Sqrt" ExpSqrt
+    ]
   ]
 
 binary name f = InfixL (symbol name >> return f)
+prefix name f = Prefix (symbol name >> return f)
 
 expr :: Parser Expression
 expr = makeExprParser term table <?> "expression"
