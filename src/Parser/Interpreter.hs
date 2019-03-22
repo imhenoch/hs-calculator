@@ -54,6 +54,15 @@ evaluation (ExpSec exp) = do
 evaluation (ExpCsc exp) = do
   v1 <- evaluation exp
   return $ cosecante v1
+evaluation (ExpLog exp) = do
+  v1 <- evaluation exp
+  return $ logaritmo v1 10
+evaluation (ExpLn exp) = do
+  v1 <- evaluation exp
+  return $ ln v1
+evaluation (ExpSqrt exp) = do
+  v1 <- evaluation exp
+  return $ raiz v1
 evaluation (ExpNum exp) = do
   case exp of
     Left int -> return $ fromIntegral int
