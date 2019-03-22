@@ -33,19 +33,19 @@ term = parentheses expr <|> ExpNum <$> number <|> expr
 
 table :: [[Operator Parser Expression]]
 table =
-  [ [binary "^" ExpPow]
-  , [binary "*" ExpMul, binary "/" ExpDiv]
-  , [binary "+" ExpAdd, binary "-" ExpSub]
-  , [ prefix "sin" ExpSin
-    , prefix "cos" ExpCos
-    , prefix "tan" ExpTan
+  [ [ prefix "sin"  ExpSin
+    , prefix "cos"  ExpCos
+    , prefix "tan"  ExpTan
     , prefix "_cot" ExpCot
     , prefix ".sec" ExpSec
-    , prefix "Csc" ExpCsc
-    , prefix "Log" ExpLog
-    , prefix "ln" ExpLn
+    , prefix "Csc"  ExpCsc
+    , prefix "Log"  ExpLog
+    , prefix "ln"   ExpLn
     , prefix "Sqrt" ExpSqrt
     ]
+  , [binary "^" ExpPow]
+  , [binary "*" ExpMul, binary "/" ExpDiv]
+  , [binary "+" ExpAdd, binary "-" ExpSub]
   ]
 
 binary name f = InfixL (symbol name >> return f)
