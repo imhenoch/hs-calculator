@@ -22,7 +22,11 @@ module Main where
     setup window = void $ do
         return window # set title "Calculadora"
     
-        pantalla <- UI.input
+        operation <- UI.input
+            # set UI.style [("border","2px solid"), ("width", "50%"), ("padding", "2%"),
+                            ("margin-left", "24%"), ("margin-right", "50%"), 
+                            ("margin-bottom", "3%")]
+        result <- UI.input
             # set UI.style [("border","2px solid"), ("width", "50%"), ("padding", "2%"),
                             ("margin-left", "24%"), ("margin-right", "50%"), 
                             ("margin-bottom", "3%")]
@@ -53,38 +57,34 @@ module Main where
         exp <- UI.button # set UI.text "^"
             # set UI.style [("border","1px solid "), ("border-radius","16px"), 
                             ("padding", "14px 40px"), ("margin-left", "287%")]
-        result <- UI.button # set UI.text "="
-            # set UI.style [("border","1px solid "), ("border-radius","16px"), 
-                            ("width", "1500%"), ("height", "50px"), ("margin-left", "1200%")]
             
-        getBody window #+ [element pantalla,
+        getBody window #+ [element operation,
+                           element result,
                             row[element sin, element cos, element tan, element cotg,
                                 element sec, element cosec],
-                            row[element log, element sqrt, element exp, element result]
+                            row[element log, element sqrt, element exp]
                         ]
 
-        operation <- stepper "0" $ UI.valueChange pantalla
+        operationIn <- stepper "0" $ UI.valueChange operation
+        let
+            resultOut = evaluate <$> operationIn
+        element result # sink value resultOut
 
         on UI.click sin $ const $ do
-            element pantalla # set value ("sin (  )")
+            element operation # set value ("sin (  )")
         on UI.click cos $ const $ do 
-            element pantalla # set value ("cos (  )")
+            element operation # set value ("cos (  )")
         on UI.click tan $ const $ do
-            element pantalla # set value ("tan (  )")
+            element operation # set value ("tan (  )")
         on UI.click cotg $ const $ do
-            element pantalla # set value ("_cot (  )")
+            element operation # set value ("_cot (  )")
         on UI.click sec $ const $ do
-            element pantalla # set value (".sec (  )")
+            element operation # set value (".sec (  )")
         on UI.click cosec $ const $ do
-            element pantalla # set value ("Csc (  )")
+            element operation # set value ("Csc (  )")
         on UI.click log $ const $ do
-            element pantalla # set value ("Log (  )")
+            element operation # set value ("Log (  )")
         on UI.click sqrt $ const $ do
-            element pantalla # set value ("Sqrt (  )")
+            element operation # set value ("Sqrt (  )")
         on UI.click exp $ const $ do
-            element pantalla # set value (" ^ ")
-        on UI.click result $ const $ do
-            element pantalla # set value (evaluate "1 + 3")
-        on UI.sendValue pantalla $ \content -> do
-            when (not (null content)) $ liftIO $ do
-                print $ evaluate content
+            element operation # set value (" ^ ")
