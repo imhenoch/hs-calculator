@@ -29,7 +29,7 @@ number :: Parser (Either Integer Double)
 number = lexeme L.number
 
 term :: Parser Expression
-term = parentheses expr <|> ExpNum <$> number <|> expr
+term = parentheses expr <|> ExpNum <$> number
 
 table :: [[Operator Parser Expression]]
 table =
